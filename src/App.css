@@ -1,74 +1,160 @@
-/* App.css */
+/* Import Google Font at the top */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+/* Define a modern color palette and font styles using CSS variables.
+  This makes it easy to change the theme later.
+*/
+:root {
+  --primary-color: #2a9d8f; /* A pleasant teal */
+  --primary-hover-color: #268a7e; /* A slightly darker teal for hover */
+  --secondary-color: #e9c46a; /* A warm gold for accents */
+  --background-color: #f8f9fa; /* A soft, light gray background */
+  --card-bg-color: #ffffff; /* Clean white for cards */
+  --text-color: #343a40; /* Dark gray for text, softer than pure black */
+  --border-color: #dee2e6; /* A light border color */
+  --shadow-color: rgba(0, 0, 0, 0.08); /* A subtle shadow color */
+  --font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased; /* Improves font rendering */
+  -moz-osx-font-smoothing: grayscale;
+
+  background-image: 
+    /* This gradient creates the faded effect. Adjust the last value (0.9) to make the image more or less visible. */ linear-gradient(
+      rgba(248, 249, 250, 0.7),
+      rgba(248, 249, 250, 0.7)
+    ),
+    url("https://thumbs.dreamstime.com/b/healthcare-technology-doctor-using-digital-tablet-icon-medical-network-hospital-background-162019727.jpg?w=992"); /* Example URL */
+
+  /* These properties ensure the image covers the whole page without tiling or stretching */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* This makes the background stay in place when you scroll */
+
+  color: var(--text-color);
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* margin: 0; Ensure no default margin */
+  /* padding: 0; /* Ensure no default padding */
+}
 
 .container {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 40px auto; /* Increased top/bottom margin for better spacing */
   padding: 20px;
-  font-family: Arial, sans-serif;
 }
 
 .title {
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #4CAF50;
+  font-size: 2.5rem; /* Slightly larger for more impact */
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: var(--primary-color);
+  /* A subtle text shadow adds depth */
+  text-shadow: 1px 1px 2px var(--shadow-color);
 }
 
-.account-info, .owner-info {
+.account-info,
+.owner-info {
   text-align: center;
-  margin-bottom: 20px;
-  font-size: 1.1rem;
-  color: #333;
+  margin-bottom: 25px;
+  font-size: 1.15rem;
+  color: #555;
+}
+
+/* Base card style for both form and records */
+.card {
+  padding: 30px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background-color: var(--card-bg-color);
+  box-shadow: 0 4px 12px var(--shadow-color); /* Soft shadow for elevation */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Add a subtle lift on hover for interactivity */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .form-section {
-  margin-bottom: 30px;
-  padding: 20px;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
-  background-color: #f9f9f9;
+  margin-bottom: 40px;
 }
 
 .input-field {
   display: block;
-  width: calc(100% - 20px);
-  padding: 10px;
-  margin: 10px 0;
+  width: 100%;
+  padding: 12px 15px;
+  margin: 15px 0;
   font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  font-family: var(--font-family);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: #fdfdfd;
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Enhanced focus style for better usability */
+.input-field:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.2);
 }
 
 .action-button {
-  background-color: #4CAF50;
+  background-color: var(--primary-color);
   color: white;
-  padding: 10px 20px;
+  padding: 12px 25px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(42, 157, 143, 0.4);
 }
 
+/* A more interactive hover effect for the button */
 .action-button:hover {
-  background-color: #45a049;
+  background-color: var(--primary-hover-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(42, 157, 143, 0.5);
 }
 
 .records-section {
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .record-card {
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: var(--card-bg-color);
   margin-bottom: 20px;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  /* A left border accent to make records distinct */
+  border-left: 5px solid var(--secondary-color);
+  transition: box-shadow 0.3s ease;
+}
+
+.record-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
 .record-card p {
-  margin: 5px 0;
+  margin: 8px 0;
+  line-height: 1.6; /* Improved readability */
 }
 
 .record-card p strong {
-  color: #4CAF50;
+  color: var(--primary-color);
+  font-weight: 600;
 }
